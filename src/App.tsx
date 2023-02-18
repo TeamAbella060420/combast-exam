@@ -22,6 +22,15 @@ const items  = [
     key: '1',
   },
 ]
+
+const sortDatabase = (db: any[]) => {
+  return db.sort((a, b) => {
+    const aLatest = a.comments.sort((c1: any, c2: any) => new Date(c2.DateTime).getTime() - new Date(c1.DateTime).getTime())[0];
+    const bLatest = b.comments.sort((c1: any, c2: any) => new Date(c2.DateTime).getTime() - new Date(c1.DateTime).getTime())[0];
+    return new Date(bLatest.DateTime).getTime() - new Date(aLatest.DateTime).getTime();
+  });
+}
+
 const App = () => { 
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -57,7 +66,7 @@ const App = () => {
         <button  onClick={handleSearch}>Search</button>{' '}
       </div>
       <div className='list__container'>
-       {(searchResults.length > 0 ? searchResults :  database).map((data: any, index: number) => (
+       {(searchResults.length > 0 ? searchResults :  sortDatabase(database)).map((data: any, index: number) => (
               <div
                 className="list__item-expandable"
                 onClick={() => handleClick(index)}
