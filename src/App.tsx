@@ -48,25 +48,28 @@ const App = () => {
     const results = database.filter((data) =>
       data.TasNo.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    console.log("App.tsx ~ line 51: results", results);
     setSearchResults(results);
   };
 
   console.log(currentIndex, 'sss');
+  console.log("App.tsx ~ line 56: searchResult", searchResults === 0, searchResults);
   return (
     <>
     <div className="App">
       <h4 className='title'>Trip Log</h4>
       <div className='list__header'>
       <input
-            type="text"
-            placeholder="TR No"
-            value={searchTerm}
-            onChange={(event) => setSearchTerm(event.target.value)}
+        type="text"
+        placeholder="TR No"
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
       />
         <button  onClick={handleSearch}>Search</button>{' '}
       </div>
       <div className='list__container'>
-       {(searchResults.length > 0 ? searchResults :  sortDatabase(database)).map((data: any, index: number) => (
+        {searchResults.length === 0 && <span>No results</span>}
+        {searchResults.length !== 0 && (searchResults.length > 0 ? searchResults : sortDatabase(database)).map((data: any, index: number) => (
               <div
                 className="list__item-expandable"
                 onClick={() => handleClick(index)}
