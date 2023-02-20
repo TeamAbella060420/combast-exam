@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/combast-exam/static/css/main.3f161283.css",
+    "main.js": "/combast-exam/static/js/main.2b2d4156.js",
+    "static/js/787.28cb0dcd.chunk.js": "/combast-exam/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/combast-exam/index.html",
+    "main.3f161283.css.map": "/combast-exam/static/css/main.3f161283.css.map",
+    "main.2b2d4156.js.map": "/combast-exam/static/js/main.2b2d4156.js.map",
+    "787.28cb0dcd.chunk.js.map": "/combast-exam/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f161283.css",
+    "static/js/main.2b2d4156.js"
+  ]
+}
